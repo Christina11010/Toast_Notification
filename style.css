@@ -1,0 +1,114 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(135deg, red, green);
+    height: 100vh;
+}
+
+h1 {
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttons {
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.buttons button {
+    background: black;
+    color: white;
+    border: 0;
+    outline: 0;
+    width: 420px;
+    height: 80px;
+    margin: 20px;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 32px;
+    font-weight: 200;
+}
+
+#toastBox {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 20px;
+}
+
+.toast {
+    width: 320px;
+    height: 60px;
+    background: white;
+    font-weight: 500;
+    margin: 15px 0;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    /* allowing the frames to move in from the right side of the screen */
+    transform: translateX(100%);
+    animation: moveleft 0.5s linear forwards;
+    font-family: "Poppins", sans-serif;
+}
+
+@keyframes moveleft {
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.toast i {
+    margin: 0 20px;
+    font-size: 35px;
+    color: green;
+}
+
+.toast.error i {
+    color: red;
+}
+
+.toast.invalid i {
+    color: orange;
+}
+
+.toast::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 5px;
+    background: green;
+    animation: anim 6s linear forwards;
+}
+
+@keyframes anim {
+    100% {
+        width: 0;
+    }
+}
+
+.toast.error::after {
+    background: red;
+}
+
+.toast.invalid::after {
+    background: orange;
+}
